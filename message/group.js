@@ -38,11 +38,11 @@ module.exports = welcome = async (Xrutz, anu) => {
                 let v = Xrutz.contacts[num] || { notify: num.replace(/@.+/, '') }
                 anu_user = v.vname || v.notify || num.split('@')[0]
                 time_wel = moment.tz('Asia/Jakarta').format("HH:mm")
-                teks = `Hallo member baru! ${anu_user}\n*Semoga Betah dan ikuti Rules Group!*\nSC Original YT : *Xrutz Official*`
+                teks = `Hallo member baru! ${anu_user}\n*Semoga Betah dan ikuti Rules Group!*\nSC Original : *Koleksibot Official*`
 	            buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/welcome?nama=${anu_user}&descriminator=${time_wel}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://telegra.ph/file/fd7321d1d036d79ace9bd.jpg`)
                 buttons = [{buttonId: `#infogrup`,buttonText:{displayText: 'SELAMAT DATANG'},type:1}]
                 imageMsg = (await Xrutz.prepareMessageMedia((buff), 'imageMessage', {thumbnail: buff})).imageMessage
-                buttonsMessage = { contentText: `${teks}`, footerText: '© Xrutz - Official Bot', imageMessage: imageMsg, buttons: buttons, headerType: 4 }
+                buttonsMessage = { contentText: `${teks}`, footerText: '© Official Bot', imageMessage: imageMsg, buttons: buttons, headerType: 4 }
                 prep = await Xrutz.prepareMessageFromContent(mdata.id,{buttonsMessage},{})
                 Xrutz.relayWAMessage(prep)
 }
@@ -58,7 +58,7 @@ module.exports = welcome = async (Xrutz, anu) => {
                 buff = await getBuffer(`http://hadi-api.herokuapp.com/api/card/goodbye?nama=${anu_user}&descriminator=${time_wel}&memcount=${memeg}&gcname=${encodeURI(mdata.subject)}&pp=${pp_user}&bg=https://telegra.ph/file/fd7321d1d036d79ace9bd.jpg`)
                 buttons = [{buttonId: `#menu`,buttonText:{displayText: 'SELAMAT JALAN'},type:1}]
                 imageMsg = (await Xrutz.prepareMessageMedia((buff), 'imageMessage', {thumbnail: buff})).imageMessage
-                buttonsMessage = { contentText: `${out}`, footerText: '© Xrutz - Official Bot', imageMessage: imageMsg, buttons: buttons, headerType: 4 }
+                buttonsMessage = { contentText: `${out}`, footerText: '© Official Bot', imageMessage: imageMsg, buttons: buttons, headerType: 4 }
                 prep = await Xrutz.prepareMessageFromContent(mdata.id,{buttonsMessage},{})
                 Xrutz.relayWAMessage(prep)
             }
